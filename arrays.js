@@ -92,11 +92,83 @@ const avgOfArray = (arr) =>
 let arr9 = [-10, 2, 5, 10, 15, 20, 25, 30, 35, 40];
 // console.log(avgOfArray(arr9));
 
-//! 10.Find the median of the given array
+//! 10.Find the median of the given array.
+const findMedian = (arr) => {
+  let sortedArr = [...arr].sort((a, b) => a - b);
+  let mid = Math.floor(sortedArr.length / 2);
+  return sortedArr.length % 2 != 0
+    ? sortedArr[mid]
+    : (sortedArr[mid] + sortedArr[mid - 1]) / 2;
+};
+let arr10 = [10, 115, -20, 100, 25, 130, 77, 10];
+// console.log(findMedian(arr10));
+
 //! 11.Remove duplicates from a sorted array
+const removeDuplicates = (arr) => {
+  let uniqueArr = [];
+  let i = 0;
+  for (let el of arr) {
+    if (!uniqueArr.includes(el)) {
+      uniqueArr.push(el);
+    } else {
+      i++;
+    }
+  }
+  for (let j = 0; j < i; j++) {
+    uniqueArr.push("_");
+  }
+  return uniqueArr;
+};
+let arr11 = [1, 1, 2, 2, 2, 3, 3, 3, 3, 4, 5, 5];
+// console.log(removeDuplicates(arr11));
+
 //! 12.Remove duplicates from unsorted array
+const removeDuplicates2 = (arr) => {
+  let uniqueArr = [];
+  for (let el of arr) {
+    if (!uniqueArr.includes(el)) {
+      uniqueArr.push(el);
+    }
+  }
+  return uniqueArr;
+};
+let arr12 = [9, 7, 7, 9, 2, 2, 2, 1, 8, 7];
+// console.log(removeDuplicates2(arr12));
+
 //! 13.Adding Element in an array
-//! 14.Find all repeating elements in an array
+const addElAtBegining = (arr, el) => {
+  let newArr = [...arr];
+  newArr.unshift(el);
+  return newArr;
+};
+let arr13 = [1, 2, 3, 4, 5, "Ram", "Shyam"];
+// console.log(addElAtBegining(arr13, "Vikas"));
+const addElAtBegining2 = (arr, el) => [el, ...arr];
+// console.log(addElAtBegining2(arr13, "Madhur"));
+
+const addElAtEnd = (arr, el) => {
+  let newArr = arr;
+  newArr.push(el);
+  return newArr;
+};
+// console.log(addElAtEnd(arr13, 69));
+const addElAtEnd2 = (arr, el) => [...arr, el];
+// console.log(addElAtEnd2(arr13, "Shubham"));
+
+const addElInArray = (arr, el, position) => {
+  let newArr = [...arr];
+  newArr.splice(position, 0, el);
+  return newArr;
+};
+// console.log(addElInArray(arr13, "Muskan", 3));
+
+//! 14.Find all repeating elements in an array.
+const findRepetingELs = (arr) => {
+ 
+};
+let arr14 = [1, 12, 2, 67, "Golu", 2, 67, 90, "Golu"];
+console.log(findRepetingELs(arr14));
+
 //! 15.Find all non-repeating elements in an array
 //! 16.Find all symmetric pairs in array
 //! 17.Maximum product subarray in an array
