@@ -163,11 +163,7 @@ const addElInArray = (arr, el, position) => {
 // console.log(addElInArray(arr13, "Muskan", 3));
 
 //! 14.Find all repeating elements in an array.
-const findRepetingELs = (arr) => {
- 
-};
-let arr14 = [1, 12, 2, 67, "Golu", 2, 67, 90, "Golu"];
-console.log(findRepetingELs(arr14));
+
 
 //! 15.Find all non-repeating elements in an array
 //! 16.Find all symmetric pairs in array
