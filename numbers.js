@@ -139,17 +139,133 @@ const findGreatestNumOfThreeNums = (num1, num2, num3) => {
 
 // console.log(findGreatestNumOfThreeNums(7, 119, 99));
 
-//! 12.Leap Year or not
-//! 13.Reverse digits of a number
+//! 12.Leap Year or not.
+const isLeapYear = (year) =>
+  year % 400 == 0 || (year % 4 == 0 && year % 100 != 0);
+// console.log(isLeapYear(2023));
+
+//! 13.Reverse digits of a number.
+const reverseDigits = (num) =>
+  parseInt(num.toString().split("").reverse().join(""));
+// console.log(reverseDigits(298));
+
 //! 14.Maximum and Minimum digit in a number
+const findMaxMinOfDigit = (num) => {
+  let arr = num.toString().split("");
+  let numArr = arr.map((el) => parseInt(el));
+  return {
+    MaximumDigit: Math.max(...numArr),
+    MinimumDigit: Math.min(...numArr),
+  };
+};
+// console.log(findMaxMinOfDigit(924368));
+
 //! 15.Print Fibonacci upto Nth Term
+const printFibonacciSeries = (n) => {
+  let series = [];
+  if (n < 1) return series;
+  if (n >= 1) series.push(0);
+  if (n >= 2) series.push(1);
+  for (let i = 2; i < n; i++) {
+    let nextDigit = series[i - 1] + series[i - 2];
+    series.push(nextDigit);
+  }
+  return series;
+};
+// console.log(printFibonacciSeries(9));
+
 //! 16.Factorial of a number
-//! 17.Power of a number
-//! 18.Factors of a given number
-//! 19.Print all prime factors of the given number
-//! 20.Check if a number is a strong number or not
-//! 21.Check if a Number is Automorphic
+const printFactorial = (num) => {
+  let fact = 1;
+  for (let i = 1; i <= num; i++) {
+    fact *= i;
+  }
+  return `The factorial of number ${num} is :${fact}`;
+};
+// console.log(printFactorial(4));
+
+//! 17.Power of a number.
+const powerOfNum = (num, pow) => num ** pow;
+// console.log(powerOfNum(2, 5));
+
+const powerOfNum1 = (num, pow) => Math.pow(num, pow);
+// console.log(powerOfNum1(2, 5));
+
+const powerOfNum2 = (num, pow) => {
+  let power = 1;
+  for (let i = 0; i < pow; i++) {
+    power *= num;
+  }
+  return power;
+};
+// console.log(powerOfNum2(2, 5));
+
+//! 18.Factors of a given number.
+const findFactors = (num) => {
+  let factors = [];
+  for (let i = 1; i <= num; i++) {
+    if (num % i === 0) {
+      factors.push(i);
+    }
+  }
+  return factors;
+};
+// console.log(findFactors(9));
+
+//! 19.Print all prime factors of the given number.
+const isPrimeNum = (num) => {
+  if (num < 2) return false;
+  for (let i = 2; i < num; i++) {
+    if (num % i === 0) {
+      return false;
+    }
+  }
+  return true;
+};
+const getPrimeFactors = (num) => {
+  let primeFactors = [];
+  for (let i = 1; i <= num; i++) {
+    if (num % i === 0 && isPrimeNum(i)) {
+      primeFactors.push(i);
+    }
+  }
+  return primeFactors;
+};
+
+// console.log(getPrimeFactors(50));
+
+//! 20.Check if a number is a strong number or not.
+const findFactorial = (num) => {
+  let fact = 1;
+  for (let i = 1; i <= num; i++) {
+    fact *= i;
+  }
+  return fact;
+};
+
+const isStrongNum = (num) => {
+  let sum = 0;
+  let arr = num.toString().split("");
+  let numArr = arr.map((el) => parseInt(el));
+  for (let el of numArr) {
+    sum += findFactorial(el);
+    console.log(sum);
+  }
+  return num == sum;
+};
+// console.log(isStrongNum(145));
+
+//! 21.Check if a Number is Automorphic.
+const checkAutomorphicNum = (num) => {
+  let squareOfNum = num * num;
+  return squareOfNum.toString().endsWith(num.toString());
+};
+console.log(checkAutomorphicNum(25));
+
 //! 22.GCD of two numbers
+const findGCDOfTwoNums = (num1, num2)=>{
+  
+}
 //! 23.LCM of two numbers
 //! 24.Check if a number is Harshad number
 //! 25.Check if the number is abundant number or not
