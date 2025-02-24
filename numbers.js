@@ -260,20 +260,113 @@ const checkAutomorphicNum = (num) => {
   let squareOfNum = num * num;
   return squareOfNum.toString().endsWith(num.toString());
 };
-console.log(checkAutomorphicNum(25));
+// console.log(checkAutomorphicNum(25));
 
 //! 22.GCD of two numbers
-const findGCDOfTwoNums = (num1, num2)=>{
-  
-}
-//! 23.LCM of two numbers
+const findGCD = (num1, num2) => {
+  while (num2 != 0) {
+    [num1, num2] = [num2, num1 % num2];
+  }
+  return num1;
+};
+// console.log(findGCD(22, 55));
+
+const findGCDofTwoNums = (num1, num2) => {
+  let gcd = 1;
+  for (let i = 1; i <= Math.min(num1, num2); i++) {
+    if (num1 % i === 0 && num2 % i === 0) {
+      gcd = i;
+    }
+  }
+  return gcd;
+};
+// console.log(findGCDofTwoNums(35, 28));
+
+//! 23.LCM of two numbers.
+const printGCD = (a, b) => {
+  while (b != 0) {
+    [a, b] = [b, a % b];
+  }
+  return a;
+};
+
+const LCMofTwoNums = (num1, num2) => (num1 * num2) / printGCD(num1, num2);
+// console.log(LCMofTwoNums(12, 15));
+
 //! 24.Check if a number is Harshad number
-//! 25.Check if the number is abundant number or not
-//! 26.Sum of digits of a number
-//! 27.Sum of numbers in the given range
-//! 28.Permutations in which N people can occupy R seats in a classroom
-//! 29.Program to add two fractions
-//! 30.Replace all 0s with 1s in a given integer
-//! 31.Can a number be expressed as a sum of two prime numbers
+const isHarshadNum = (num) => (num % 18 === 0 ? true : false);
+// console.log(isHarshadNum(379));
+
+//! 25.Check if the number is abundant number or not.
+const isAbundandtNum = (num) => {
+  let sum = 0;
+  for (let i = 1; i < num; i++) {
+    if (num % i === 0) {
+      sum += i;
+      console.log(sum);
+    }
+  }
+  return sum > num;
+};
+// console.log(isAbundandtNum(19));
+
+//! 26.Sum of digits of a number;
+const sumOfDigitsOfNum = (num) => {
+  return num
+    .toString()
+    .split("")
+    .reduce((sum, el) => sum + parseInt(el), 0);
+};
+// console.log(sumOfDigitsOfNum(567));
+
+//! 27.Sum of numbers in the given range.
+const sumOfNumInRange = (start, end) => {
+  let sum = 0;
+  for (let i = start; i <= end; i++) {
+    sum += i;
+  }
+  return sum;
+};
+// console.log(sumOfNumInRange(12, 15));
+
+//! 28.Permutations in which N people can occupy R seats in a classroom.
+const factorialOf = (num) => {
+  let fact = 1;
+  for (let i = 1; i <= num; i++) {
+    fact *= i;
+  }
+  return fact;
+};
+const findPermutation = (n, r) => factorialOf(n) / factorialOf(n - r);
+// console.log(findPermutation(5, 3));
+
+//! 29.Program to add two fractions.
+const addFractions = (f1, f2) => {};
+//! 30.Replace all 0s with 1s in a given integer.
+const replaceZeroWithOne = (int) =>
+  parseInt(int.toString().replaceAll("0", "1"));
+// console.log(replaceZeroWithOne(134002));
+
+//! 31.Can a number be expressed as a sum of two prime numbers.
+const checkIsPrime = (num) => {
+  if (num < 2) return false;
+  for (let i = 2; i < num; i++) {
+    if (num % i === 0) {
+      return false;
+    }
+  }
+  return true;
+};
+
+const sumOfTwoPrimeNums = (num) => {
+  for (let i = 2; i <= Math.sqrt(num); i++) {
+    if (checkIsPrime(i) && checkIsPrime(i - 2)) {
+      return num ;
+    }
+  }
+  return false;
+};
+console.log(sumOfTwoPrimeNums(71));
+
 //! 32.Calculate the area of circle
 //! 33.Program to find roots of a Quadratic Equation
