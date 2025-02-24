@@ -360,13 +360,17 @@ const checkIsPrime = (num) => {
 
 const sumOfTwoPrimeNums = (num) => {
   for (let i = 2; i <= Math.sqrt(num); i++) {
-    if (checkIsPrime(i) && checkIsPrime(i - 2)) {
-      return num ;
+    if (checkIsPrime(i) && checkIsPrime(num - i)) {
+      return true;
     }
   }
   return false;
 };
-console.log(sumOfTwoPrimeNums(71));
+// console.log(sumOfTwoPrimeNums(74));
 
-//! 32.Calculate the area of circle
-//! 33.Program to find roots of a Quadratic Equation
+//! 32.Calculate the area of circle.
+const areaOfCircle = (radius) => 3.14 * radius ** 2;
+// console.log(areaOfCircle(10));
+
+//! 33.Program to find roots of a Quadratic Equation.
+
