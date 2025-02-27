@@ -93,20 +93,141 @@ const capitalizeFirstAndLastChar = (str) => {
 // console.log(capitalizeFirstAndLastChar("hellow this is vikas aa1"));
 
 //! 11.Calculate frequency of characters in a string.
+const calculateCharsFreq = (str) => {
+  let freq = {};
+};
 //! 12.Find Non-repeating characters of a String.
+const nonRepeatingChars = (str) => {};
+// console.log(nonRepeatingChars("google"));
+
 //! 13.Check if two strings are anagram of each other.
-//! 14.Count common sub-sequence in two strings
-//! 15.Check if two strings match where one string contains wildcard characters
-//! 16.Return maximum occurring character in the input string
+const isAnagramStr = (str1, str2) => {
+  if (str1.length != str2.length) return false;
+  let string1 = str1.split("").sort().join("");
+  let string2 = str2.split("").sort().join("");
+  return string1 === string2;
+};
+// console.log(isAnagramStr("act", "cat"));
+
+//! 14.Count common sub-sequence in two strings.
+
+//! 15.Check if two strings match where one string contains wildcard characters.
+
+//! 16.Return maximum occurring character in the input string.
+const maxOccuringChar = (str) => {};
+// console.log(maxOccuringChar("vikaavs"));
+
 //! 17.Remove all duplicates from the input string.
+const removeDuplicates = (str) => {
+  let charArr = [...new Set(str)];
+  let charStr = charArr.join("");
+  return charStr;
+};
+// console.log(removeDuplicates("Yahooo"));
+
 //! 18.Print all the duplicates in the input string.
-//! 20.Remove characters from first string present in the second string
-//! 21.Change every letter with the next lexicographic alphabet in the given string
+
+//! 20.Remove characters from first string present in the second string.
+const removeChars = (str1, str2) => {
+  let str = "";
+  for (let char of str1) {
+    if (!str2.includes(char)) {
+      str += char;
+    }
+  }
+  return str;
+};
+// console.log(removeChars("vikas", "as"));
+
+const removeChars2 = (str1, str2) =>
+  [...str1].filter((char) => !str2.includes(char)).join("");
+// console.log(removeChars2("golu", "yahoo"));
+
+//! 21.Change every letter with the next lexicographic alphabet in the given string.
+const changeCharToNextChar = (str) => {
+  let newStr = "";
+  for (let char of str) {
+    if (char === "z") {
+      newStr += "a";
+    } else if (char === "Z") {
+      newStr += "A";
+    } else {
+      newStr += String.fromCharCode(char.charCodeAt(0) + 1);
+    }
+  }
+  return newStr;
+};
+// console.log(changeCharToNextChar("aawaz"));
+
 //! 22.Write a program to find the largest word in a given string.
-//! 23Write a program to sort characters in a string
-//! 24.Count number of words in a given string
-//! 25.Write a program to find a word in a given string which has the highest number of repeated letters
-//! 26.Change case of each character in a string
-//! 27.Concatenate one string to another
-//! 28.Write a program to find a substring within a string. If found display its starting position
-//! 29.Reverse words in a string
+const findLargestWord = (str) => {
+  let strArr = str.split(" ");
+  let largestWord = strArr[0];
+  for (let word of strArr) {
+    if (word.length > largestWord.length) {
+      largestWord = word;
+    }
+  }
+  return largestWord;
+};
+// console.log(findLargestWord("I am a pro developer"));
+
+const findLargestWord2 = (str) =>
+  str
+    .split(" ")
+    .reduce(
+      (largest, word) => (largest.length > word.length ? largest : word),
+      ""
+    );
+// console.log(findLargestWord("I am a pro gamer"));
+
+//! 23Write a program to sort characters in a string.
+const sortChars = (str) => str.split("").sort().join("");
+// console.log(sortChars("vikaAs"));
+// console.log(sortChars("9036g"));
+
+//! 24.Count number of words in a given string.
+const countWords = (str) => str.split(" ").length;
+// console.log(countWords("my name    is vikas"));
+
+const countWords2 = (str) => str.trim().split(/\s+/).length;
+// console.log(countWords2("my name     is vikas"));
+
+//! 25.Write a program to find a word in a given string which has the highest number of repeated letters.
+
+//! 26.Change case of each character in a string.
+const changeCaseOfChars = (str) => {
+  let result = "";
+  for (let char of str) {
+    char === char.toUpperCase()
+      ? (result += char.toLowerCase())
+      : (result += char.toUpperCase());
+  }
+  return result;
+};
+// console.log(changeCaseOfChars("abcXYZ"));
+
+const changeCaseOfChars2 = (str) => {
+  let newStr = "";
+  for (let char of str) {
+    if (char >= "a" && char <= "z") {
+      newStr += char.toUpperCase();
+    } else {
+      newStr += char.toLowerCase();
+    }
+  }
+  return newStr;
+};
+// console.log(changeCaseOfChars2("VikAs"));
+
+//! 27.Concatenate one string to another.
+const concatenateStrings = (str1, str2) => str1.trim() + str2.trim();
+const concatenateStrings2 = (str1, str2) => str1.concat(str2);
+const concatenateStrings3 = (str1, str2) => str1 + str2;
+// console.log(concatenateStrings3("vikas", "golu"));
+
+//! 28.Write a program to find a substring within a string. If found display its starting position.
+//! 29.Reverse words in a string.
+const reverseWordsInStr = (str) => str.split(" ").reverse().join(" ");
+
+console.log(reverseWordsInStr("my name is golu"));
